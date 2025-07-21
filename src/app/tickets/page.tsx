@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,10 +21,9 @@ type Ticket = {
   created_at: string;
 };
 
-export default function TicketsPage() {
+function TicketsPageInner() {
   const searchParams = useSearchParams();
   const emailFromQuery = searchParams.get("email") || "";
-  const [status, setStatus] = useState<string | null>(null);
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -115,5 +114,13 @@ export default function TicketsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function TicketsPage() {
+  return (
+    <Suspense>
+      <TicketsPageInner />
+    </Suspense>
   );
 } 
