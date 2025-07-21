@@ -16,16 +16,10 @@ export async function buyTicketsApi(data: TicketForm) {
       type: data.type,
       email: data.email
     };
-  } catch (error: unknown) {
-    if (
-      typeof error === "object" &&
-      error !== null &&
-      "response" in error &&
-      typeof (error as any).response === "object" &&
-      (error as any).response.data &&
-      (error as any).response.data.message
-    ) {
-      throw new Error((error as any).response.data.message);
+  // eslint-disable-next-line
+  } catch (error: any) {
+    if (error.response && error.response.data && error.response.data.message) {
+      throw new Error(error.response.data.message);
     }
     throw new Error("Failed to process purchase. Please try again.");
   }
