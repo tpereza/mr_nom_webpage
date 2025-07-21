@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { buyTicketsApi } from "../api/tickets";
+import { buyTicketsApi, checkPaymentStatus } from "../api/tickets";
+import Link from "next/link";
 
 const ticketSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -18,13 +19,21 @@ const orderSchema = z.object({
   type: z.enum(["General", "VIP"]),
   payment_id: z.string().min(1, "Payment ID is required"),
 });
+const paymentStatusSchema = z.object({
+  status: z.string().min(2, "Status is required"),
+  pdf_url: z.string().min(1, "Url is required"),
+});
 export type TicketForm = z.infer<typeof ticketSchema>;
 export type OrderForm = z.infer<typeof orderSchema>;
+export type PaymentStatusForm = z.infer<typeof paymentStatusSchema>;
 
 export default function Home() {
   const [confirmation, setConfirmation] = useState<OrderForm | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [paymentStatus, setPaymentStatus] = useState<PaymentStatusForm | null>(null);
+  const [checkingStatus, setCheckingStatus] = useState(false);
+  const [checkedStatus, setCheckedStatus] = useState(false);
 
   const {
     register,
@@ -71,12 +80,66 @@ export default function Home() {
               <p>Nombre: <span className="font-medium">{confirmation.name}</span></p>
               <p>Email: <span className="font-medium">{confirmation.email}</span></p>
               <p>Entradas: <span className="font-medium">{confirmation.quantity}</span> ({confirmation.type})</p>
-              <button
-                className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
-                onClick={() => setConfirmation(null)}
-              >
-                Comprar más entradas
-              </button>
+              {paymentStatus && (
+                <div className="mt-4 p-2 rounded bg-blue-100 text-blue-800">
+                  Estado del pago: <span className="font-semibold">{paymentStatus.status}</span>
+                </div>
+              )}
+              {paymentStatus && paymentStatus.pdf_url && (
+                <a
+                  href={paymentStatus.pdf_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition inline-block"
+                  download
+                >
+                  Descargar ticket
+                </a>
+              )}
+              {!checkedStatus || (paymentStatus && paymentStatus.status !== "Aprobado") ? (
+                <button
+                  className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition disabled:opacity-60"
+                  onClick={async () => {
+                    setCheckingStatus(true);
+                    setError(null);
+                    try {
+                      const status = await checkPaymentStatus(confirmation.payment_id);
+                      setPaymentStatus(status);
+                      if (status.status === "Aprobado") {
+                        setCheckedStatus(true);
+                      }
+                    } catch (err: unknown) {
+                      if (err instanceof Error) setError(err.message);
+                      else setError("Unknown error");
+                    } finally {
+                      setCheckingStatus(false);
+                    }
+                  }}
+                  disabled={checkingStatus}
+                >
+                  {checkingStatus ? "Consultando..." : "Ver estado de pago"}
+                </button>
+              ) : null}
+              {paymentStatus && paymentStatus.status === "Aprobado" && (
+                <div className="flex flex-col sm:flex-row gap-2 justify-center mt-4">
+                  <button
+                    className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+                    onClick={() => {
+                      setConfirmation(null);
+                      setPaymentStatus(null);
+                      setCheckedStatus(false);
+                    }}
+                  >
+                    Comprar más entradas
+                  </button>
+                  <Link
+                    href={`/tickets?email=${encodeURIComponent(confirmation.email)}`}
+                    className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition inline-block"
+                  >
+                    Consultar mis tickets
+                  </Link>
+                </div>
+              )}
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -135,8 +198,14 @@ export default function Home() {
           )}
         </section>
       </div>
-      <footer className="mt-10 text-gray-500 text-sm text-center">
+      <footer className="mt-10 text-gray-500 text-sm text-center flex flex-col items-center gap-2">
         &copy; 2025 Mr x NØM. All rights reserved.
+        <Link
+          href="/tickets"
+          className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition inline-block"
+        >
+          Consultar mis tickets
+        </Link>
       </footer>
     </div>
   );
