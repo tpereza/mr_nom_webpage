@@ -46,7 +46,7 @@ export async function checkPaymentStatus(payment_id: string) {
     });
     const data =  response.data;
     return {
-      status: data.status,
+      status: data.success ? "Aprobado" : "Pendiente",
       pdf_url: data.pdf_url
     }
   // eslint-disable-next-line
