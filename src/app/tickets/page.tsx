@@ -23,7 +23,7 @@ type Ticket = {
 
 function TicketsPageInner() {
   const searchParams = useSearchParams();
-  const emailFromQuery = searchParams.get("email") || "";
+  const emailFromQuery = searchParams?.get("email") || "";
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,12 +57,12 @@ function TicketsPageInner() {
   };
 
   useEffect(() => {
-    if (emailFromQuery) {
+    if (emailFromQuery && searchParams) {
       setValue("email", emailFromQuery);
       handleSubmit(onSubmit)();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emailFromQuery]);
+  }, [emailFromQuery, searchParams]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 flex flex-col items-center justify-center py-10 px-4">

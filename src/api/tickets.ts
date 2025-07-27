@@ -11,13 +11,13 @@ function encryptApiKey(apiKey: string, encryptionKey: string): string {
   return encrypted;
 }
 
-
-const encryptedApiKey = encryptApiKey(API_KEY, ENCRYPTION_KEY);
-
-const apiHeaders = {
-  "x-api-key": encryptedApiKey,
-  "Content-Type": "application/json",
-};
+function getApiHeaders() {
+  const encryptedApiKey = encryptApiKey(API_KEY, ENCRYPTION_KEY);
+  return {
+    "x-api-key": encryptedApiKey,
+    "Content-Type": "application/json",
+  };
+}
 
 export async function buyTicketsApi(data: TicketForm) {
   try {
@@ -26,7 +26,7 @@ export async function buyTicketsApi(data: TicketForm) {
       "name": data.name,
       "total_amount": data.quantity
     }, {
-      headers: apiHeaders
+      headers: getApiHeaders()
     });
     
     return {
@@ -48,7 +48,7 @@ export async function buyTicketsApi(data: TicketForm) {
 export async function checkPaymentStatus(payment_id: string) {
   try {
     const response = await axios.post("https://mrnombackend-production.up.railway.app/webhook", { payment_id, "status": "succeeded" }, {
-      headers: apiHeaders
+      headers: getApiHeaders()
     });
     const data =  response.data;
     return {
@@ -67,7 +67,7 @@ export async function checkPaymentStatus(payment_id: string) {
 export async function getTicketsByEmail(email: string) {
   try {
     const response = await axios.post("https://mrnombackend-production.up.railway.app/tickets", { email }, {
-      headers: apiHeaders
+      headers: getApiHeaders()
     });
     return response.data;
   // eslint-disable-next-line
