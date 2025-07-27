@@ -1,31 +1,25 @@
 import axios from "axios";
-import CryptoJS from "crypto-js";
 import { TicketForm } from "../app/page";
 
-const API_KEY = process.env.API_KEY || "";
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || "";
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
 
-function encryptApiKey(apiKey: string, encryptionKey: string): string {
-  const key = CryptoJS.PBKDF2(encryptionKey, 'salt', { keySize: 256/32 });
-  const encrypted = CryptoJS.AES.encrypt(apiKey, key).toString();
-  return encrypted;
-}
 
 function getApiHeaders() {
-  const encryptedApiKey = encryptApiKey(API_KEY, ENCRYPTION_KEY);
   return {
-    "x-api-key": encryptedApiKey,
+    "x-api-key": API_KEY,
     "Content-Type": "application/json",
   };
 }
 
 export async function buyTicketsApi(data: TicketForm) {
   try {
-    const response = await axios.post("https://mrnombackend-production.up.railway.app/checkout", {
+    const requestData = {
       "email": data.email,
       "name": data.name,
       "total_amount": data.quantity
-    }, {
+    };
+    
+    const response = await axios.post("https://mrnombackend-production.up.railway.app/checkout", requestData, {
       headers: getApiHeaders()
     });
     
