@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000' //'https://mrnombackend-production.up.railway.app';
+const API_BASE_URL = process.env.API_BASE_URL ||'http://localhost:3000'; //'https://mrnombackend-production.up.railway.app';
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
 
 // Types for our API
