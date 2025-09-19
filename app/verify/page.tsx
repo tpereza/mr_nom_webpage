@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { apiService, PaymentVerifyResponse, DownloadTicketsResponse, PaymentTicketsResponse } from "../services/api";
 
-export default function VerifyPage() {
+function VerifyPageContent() {
   const searchParams = useSearchParams();
   
   const [isLoading, setIsLoading] = useState(true);
@@ -337,5 +337,33 @@ export default function VerifyPage() {
         )}
       </section>
     </main>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-black">
+        <header className="max-w-7xl mx-auto px-6 pt-6">
+          <a href="/" className="block">
+            <Image
+              src="/images/logo.png"
+              alt="MR+NØM Logo"
+              width={120}
+              height={40}
+              className="cursor-pointer"
+            />
+          </a>
+        </header>
+        <section className="max-w-4xl mx-auto px-6 pt-20">
+          <div className="text-center">
+            <div className="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-6"></div>
+            <p className="text-white/80">Cargando...</p>
+          </div>
+        </section>
+      </main>
+    }>
+      <VerifyPageContent />
+    </Suspense>
   );
 }
