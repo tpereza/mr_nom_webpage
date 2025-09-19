@@ -1,0 +1,34 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --font-inter: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+html, body {
+  height: 100%;
+  background: #000;
+  color: #fff;
+}
+
+/* gradient text utilities matching the mock */
+.grad-pink-blue {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #ff6aa6 0%, #a14eea 35%, #44a3ff 100%);
+}
+.grad-pink {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #ff6aa6 0%, #ff87b9 100%);
+}
+.grad-blue {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #7cc0ff 0%, #2d8fff 100%);
+}
+.grad-multiline span { display: inline-block; }
+.nav-link { @apply text-sm italic tracking-wide hover:opacity-80 transition; }
+.pill-input {
+  @apply bg-white/5 border border-white/15 rounded-full pl-10 pr-4 py-2 outline-none placeholder-white/40 shadow-glow;
+}
+.btn-white {
+  @apply bg-white text-black rounded-full px-6 py-3 font-medium shadow hover:opacity-90 transition;
+}
