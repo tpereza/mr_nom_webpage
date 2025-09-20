@@ -108,7 +108,7 @@ function VerifyPageContent() {
   return (
     <main className="min-h-screen bg-black">
       {/* Header with Logo Only */}
-      <header className="max-w-7xl mx-auto px-6 pt-6">
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
         <a href="/" className="block">
           <Image
             src="/images/logo.png"
@@ -121,13 +121,13 @@ function VerifyPageContent() {
       </header>
 
       {/* VERIFY SECTION */}
-      <section className="max-w-4xl mx-auto px-6 pt-20">
-        <div className="text-center mb-12">
-          <h1 className="grad-multiline font-black leading-tight tracking-tight text-[50px] sm:text-[60px] md:text-[70px] lg:text-[80px] px-8">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="grad-multiline font-black leading-tight tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] px-4 sm:px-8">
             <span className="grad-pink-blue">Verificación de</span><br/>
-            <span className="grad-pink italic pl-4">pago</span>
+            <span className="grad-pink italic pl-2 sm:pl-4">pago</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-white/80">
+          <p className="mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-white/80">
             Aquí puedes ver los detalles de tu transacción de pago.
           </p>
         </div>
@@ -344,7 +344,7 @@ export default function VerifyPage() {
   return (
     <Suspense fallback={
       <main className="min-h-screen bg-black">
-        <header className="max-w-7xl mx-auto px-6 pt-6">
+        <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
           <a href="/" className="block">
             <Image
               src="/images/logo.png"
@@ -355,10 +355,10 @@ export default function VerifyPage() {
             />
           </a>
         </header>
-        <section className="max-w-4xl mx-auto px-6 pt-20">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
           <div className="text-center">
-            <div className="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-6"></div>
-            <p className="text-white/80">Cargando...</p>
+            <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-white/80 text-sm sm:text-base">Cargando...</p>
           </div>
         </section>
       </main>

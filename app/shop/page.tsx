@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { apiService, TicketPurchaseData, TicketPurchaseResponse } from "../services/api";
 
 export default function ShopPage() {
@@ -71,35 +70,33 @@ export default function ShopPage() {
   return (
     <main className="min-h-screen bg-black">
       {/* NAV */}
-      <header className="max-w-7xl mx-auto px-6 pt-6 flex items-center gap-8">
-        <a href="/" className="block">
-          <Image
-            src="/images/logo.png"
-            alt="MR+NØM Logo"
-            width={120}
-            height={40}
-            className="cursor-pointer"
-          />
-        </a>
-        <nav className="ml-8 flex items-center gap-8">
-          <a className="nav-link" href="/">HOME</a>
-          <a className="nav-link" href="/contact">CONTACTO</a>
-          <a className="nav-link text-white font-semibold" href="/shop">SHOP</a>
-        </nav>
-        <div className="ml-auto relative w-[380px]">
-          <MagnifyingGlassIcon className="h-5 w-5 text-white/60 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input className="pill-input w-full" placeholder="Buscar" />
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+        <div className="flex items-center gap-4 sm:gap-8">
+          <a href="/" className="block">
+            <Image
+              src="/images/logo.png"
+              alt="MR+NØM Logo"
+              width={120}
+              height={40}
+              className="cursor-pointer"
+            />
+          </a>
+          <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
+            <a className="nav-link" href="/">HOME</a>
+            <a className="nav-link" href="/contact">CONTACTO</a>
+            <a className="nav-link text-white font-semibold" href="/shop">SHOP</a>
+          </nav>
         </div>
       </header>
 
       {/* SHOP SECTION */}
-      <section className="max-w-4xl mx-auto px-6 pt-20">
-        <div className="text-center mb-12">
-          <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[50px] sm:text-[60px] md:text-[70px] lg:text-[80px]">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px]">
             <span className="grad-pink-blue">Compra tus</span><br/>
             <span className="grad-pink italic">boletos</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-white/80">
+          <p className="mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-white/80">
             Asegura tu lugar en el evento más esperado del año. Completa el formulario y prepárate para una experiencia inolvidable.
           </p>
         </div>
