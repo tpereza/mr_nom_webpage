@@ -16,6 +16,7 @@ export default function ShopPage() {
   const [purchaseResult, setPurchaseResult] = useState<TicketPurchaseResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isTimeout, setIsTimeout] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -88,6 +89,75 @@ export default function ShopPage() {
           </nav>
         </div>
       </header>
+
+      {/* INFO MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 sm:p-8 max-w-md w-full backdrop-blur-sm">
+            <div className="text-center">
+              {/* Close Button */}
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Icon */}
+              <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-white mb-4">
+                Información Importante
+              </h2>
+
+              {/* Content */}
+              <div className="text-left space-y-4 text-white/80">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-400 text-sm font-bold">1</span>
+                  </div>
+                  <p className="text-sm">
+                    <strong>No cierres la ventana de MercadoPago:</strong> Una vez que completes el pago, espera a que te redirija automáticamente.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-green-400 text-sm font-bold">2</span>
+                  </div>
+                  <p className="text-sm">
+                    <strong>Revisa tu correo:</strong> Después del pago, verifica tu bandeja de entrada y la carpeta de spam para recibir la confirmación.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-purple-400 text-sm font-bold">3</span>
+                  </div>
+                  <p className="text-sm">
+                    <strong>Tus tickets:</strong> Los recibirás por correo electrónico una vez que el pago sea procesado exitosamente.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <button
+                onClick={() => setShowModal(false)}
+                className="mt-6 w-full btn-white px-6 py-3 font-semibold"
+              >
+                Entendido, continuar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* SHOP SECTION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
