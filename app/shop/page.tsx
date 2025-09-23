@@ -142,6 +142,15 @@ export default function ShopPage() {
                     <span className="text-purple-400 text-sm font-bold">3</span>
                   </div>
                   <p className="text-sm">
+                    <strong>Email importante:</strong> El email que ingreses en el formulario será donde recibas tus tickets.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-orange-400 text-sm font-bold">4</span>
+                  </div>
+                  <p className="text-sm">
                     <strong>Tus tickets:</strong> Los recibirás por correo electrónico una vez que el pago sea procesado exitosamente.
                   </p>
                 </div>
