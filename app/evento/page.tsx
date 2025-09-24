@@ -16,7 +16,6 @@ export default function ExperienciaPage() {
             />
           </a>
           <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
-            <a className="nav-link" href="/">HOME</a>
             <a className="nav-link text-white font-semibold" href="/evento">EXPERIENCIA</a>
             <a className="nav-link" href="/contact">CONTACTO</a>
             <a className="nav-link" href="/shop">SHOP</a>
@@ -252,7 +251,7 @@ export default function ExperienciaPage() {
             {/* Purchase Button */}
             <div className="mt-auto pt-8">
               <a
-                href="/shop"
+                href="/shop?ticket_type=Boleta General"
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block"
               >
                 Comprar General
@@ -351,7 +350,7 @@ export default function ExperienciaPage() {
             {/* Purchase Button */}
             <div className="mt-auto pt-8">
               <a
-                href="/shop"
+                href="/shop?ticket_type=Boleta VIP"
                 className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block"
               >
                 Comprar VIP

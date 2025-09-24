@@ -1,10 +1,13 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { apiService, TicketPurchaseData, TicketPurchaseResponse } from "../services/api";
 
-export default function ShopPage() {
+function ShopPageContent() {
+  const searchParams = useSearchParams();
+  
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -17,6 +20,17 @@ export default function ShopPage() {
   const [error, setError] = useState<string | null>(null);
   const [isTimeout, setIsTimeout] = useState(false);
   const [showModal, setShowModal] = useState(true);
+
+  // Read URL parameters and set default ticket type
+  useEffect(() => {
+    const ticketType = searchParams.get('ticket_type');
+    if (ticketType) {
+      setFormData(prev => ({
+        ...prev,
+        ticketType: ticketType
+      }));
+    }
+  }, [searchParams]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -83,7 +97,6 @@ export default function ShopPage() {
             />
           </a>
           <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
-            <a className="nav-link" href="/">HOME</a>
             <a className="nav-link" href="/evento">EXPERIENCIA</a>
             <a className="nav-link" href="/contact">CONTACTO</a>
             <a className="nav-link text-white font-semibold" href="/shop">SHOP</a>
@@ -337,8 +350,8 @@ export default function ShopPage() {
                 className="w-full bg-white/5 border border-white/15 rounded-full px-6 py-4 outline-none text-white focus:border-white/30 transition appearance-none cursor-pointer"
               >
                 <option value="" className="bg-black text-white">Selecciona el tipo de boleto</option>
-                <option value="general" className="bg-black text-white">General - $60,000</option>
-                <option value="vip" className="bg-black text-white">VIP - $90,000</option>
+                <option value="Boleta General" className="bg-black text-white">General - $60,000</option>
+                <option value="Boleta VIP" className="bg-black text-white">VIP - $90,000</option>
               </select>
             </div>
 
@@ -385,5 +398,33 @@ export default function ShopPage() {
         )}
       </section>
     </main>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-black">
+        <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+          <a href="/" className="block">
+            <Image
+              src="/images/logo.png"
+              alt="MR+NØM Logo"
+              width={120}
+              height={40}
+              className="cursor-pointer"
+            />
+          </a>
+        </header>
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
+          <div className="text-center">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-white/80 text-sm sm:text-base">Cargando...</p>
+          </div>
+        </section>
+      </main>
+    }>
+      <ShopPageContent />
+    </Suspense>
   );
 }
