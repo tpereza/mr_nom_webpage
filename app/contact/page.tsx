@@ -17,6 +17,7 @@ export default function ContactPage() {
           </a>
           <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
             <a className="nav-link" href="/">HOME</a>
+            <a className="nav-link" href="/evento">EXPERIENCIA</a>
             <a className="nav-link text-white font-semibold" href="/contact">CONTACTO</a>
             <a className="nav-link" href="/shop">SHOP</a>
           </nav>

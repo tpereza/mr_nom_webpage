@@ -1,7 +1,6 @@
-
 import Image from "next/image";
 
-export default function Page() {
+export default function ExperienciaPage() {
   return (
     <main className="min-h-screen bg-black">
       {/* NAV */}
@@ -18,54 +17,177 @@ export default function Page() {
           </a>
           <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
             <a className="nav-link" href="/">HOME</a>
-            <a className="nav-link" href="/evento">EXPERIENCIA</a>
+            <a className="nav-link text-white font-semibold" href="/evento">EXPERIENCIA</a>
             <a className="nav-link" href="/contact">CONTACTO</a>
             <a className="nav-link" href="/shop">SHOP</a>
           </nav>
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-12 gap-4 sm:gap-8 pt-10 sm:pt-20">
-        {/* Left text */}
-        <div className="col-span-12 lg:col-span-7">
-          <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[40px] sm:text-[60px] md:text-[80px] lg:text-[90px] xl:text-[110px]">
-            <span className="grad-pink-blue">Si quieres</span><br/>
-            <span className="grad-pink italic">darte</span><br/>
-            <span className="grad-pink-blue">una pausa</span><br/>
-          </h1>
-          <p className="mt-4 sm:mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-white/80">
-            dejar todo en silencio y escuchar lo que realmente importa, esto es para ti.
-          </p>
-          <a href="/shop" className="mt-4 sm:mt-8 btn-white inline-block">COMPRA AHORA</a>
-        </div>
-
-        {/* Right images */}
-        <div className="relative col-span-12 lg:col-span-5 mt-8 lg:mt-0">
-          <div className="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px] h-[200px] sm:h-[280px] md:h-[320px] relative overflow-hidden mx-auto lg:mx-0">
-            <Image
-              src="/images/dj1.png"
-              alt="DJ Black and white 1"
-              fill
-              className="object-cover grayscale"
-              priority
-            />
-          </div>
-          <div className="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px] h-[220px] sm:h-[300px] md:h-[360px] relative overflow-hidden translate-x-4 sm:translate-x-8 md:translate-x-20 translate-y-4 sm:translate-y-6 md:translate-y-10 mx-auto lg:mx-0">
-            <Image
-              src="/images/dj2.png"
-              alt="DJ Black and white 2"
-              fill
-              className="object-cover grayscale"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* TICKETS SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-24">
+      {/* EXPERIENCIA SECTIONS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20 pb-16 sm:pb-24">
         
+        {/* MAIN TITLE */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="grad-multiline font-black leading-tight tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] px-4 sm:px-8">
+            <span className="grad-pink-blue">La Experiencia</span><br/>
+            <span className="grad-pink italic pl-2 sm:pl-4">MR * NØM</span>
+          </h1>
+          <p className="mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-white/80">
+            Prepárate para una experiencia única. Aquí te dejamos algunas pautas para que disfrutes al máximo.
+          </p>
+        </div>
+        
+        {/* DO'S and DON'TS - Two Boxes Side by Side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8 lg:mb-12">
+          
+          {/* DO'S SECTION */}
+          <div className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8">
+            <div className="text-center mb-8">
+              <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">
+                <span className="grad-pink-blue">DO'S:</span>
+              </h1>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  Es un lugar para hacer una pausa en medio del caos.
+                </p>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  Es un interludio (intermedio) entre el antes y el después de la vida con propósito.
+                </p>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  Es un espacio para detenerse, sentir y encontrarse a través de las palabras y la música.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* DON'TS SECTION */}
+          <div className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8">
+            <div className="text-center mb-8">
+              <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">
+                <span className="grad-pink-blue">DON'TS:</span>
+              </h1>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  No es solo una charla (no busca informar, sino transformar).
+                </p>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  No es un toque (no entretiene, invita a la introspección).
+                </p>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base leading-relaxed">
+                  No es performance teatral ni meditación guiada.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* RECOMENDACIONES - Full Width Rectangle */}
+        <div className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8 mb-8 lg:mb-12">
+          <div className="text-center mb-8">
+            <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">
+              <span className="grad-pink-blue">RECOMENDACIONES</span>
+            </h1>
+            <h2 className="text-lg sm:text-xl font-bold text-white mt-4 mb-6 underline">
+              Para vivirlo mejor.
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-start gap-4">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p className="text-white text-sm sm:text-base leading-relaxed">
+                Llegar con mente abierta, sin juicios ni máscaras.
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p className="text-white text-sm sm:text-base leading-relaxed">
+                No tener miedo a sentir.
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p className="text-white text-sm sm:text-base leading-relaxed">
+                Dejarte guiar por tus emociones.
+              </p>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p className="text-white text-sm sm:text-base leading-relaxed">
+                Buscarle tu propia significado, esto es algo hecho especialmente para ti.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* TICKETS SECTION TITLE */}
         <div className="text-center mb-8 lg:mb-12">
           <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px]">
@@ -178,6 +300,17 @@ export default function Page() {
                 </div>
                 <p className="text-white text-sm sm:text-base">
                   Todo lo de General +
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-sm sm:text-base">
+                  Zona VIP exclusiva
                 </p>
               </div>
               
