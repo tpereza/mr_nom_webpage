@@ -187,172 +187,100 @@ export default function ExperienciaPage() {
           </div>
         </div>
 
-        {/* TICKETS SECTION - HIDDEN */}
-        {/* 
+        {/* TICKETS SECTION */}
         <div className="text-center mb-8 lg:mb-12">
           <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px]">
             <span className="grad-pink-blue">Compra</span><br/>
-            <span className="grad-pink italic pl-2 sm:pl-4">tus boletas</span>
+            <span className="grad-pink italic pl-2 sm:pl-4">tu boleta</span>
           </h1>
           <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed text-white/80">
-            Mira las opciones de boletas que tenemos disponibles para que disfrutes la experiencia a tu modo
+            Asegura tu lugar en la experiencia MR * NØM
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          
-          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-2xl p-6 sm:p-8 flex flex-col">
-            <div className="text-center mb-8">
-              <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
-                <span className="text-blue-400">BOLETA GENERAL</span>
-              </h1>
-              <div className="mt-4">
-                <span className="text-3xl sm:text-4xl font-bold text-blue-400">$60,000</span>
-                <span className="text-white/60 text-sm sm:text-base ml-2">COP</span>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
+        {/* SINGLE TICKET - Centered */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-2xl p-6 sm:p-8 flex flex-col">
+              <div className="text-center mb-8">
+                <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
+                  <span className="text-blue-400">BOLETA MR * NØM</span>
+                </h1>
+                <div className="mt-4">
+                  <span className="text-3xl sm:text-4xl font-bold text-blue-400">$60,000</span>
+                  <span className="text-white/60 text-sm sm:text-base ml-2">COP</span>
                 </div>
-                <p className="text-white text-sm sm:text-base">
-                  Acceso general al evento
-                </p>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-sm sm:text-base">
+                    Acceso al evento
+                  </p>
                 </div>
-                <p className="text-white text-sm sm:text-base">
-                  2 Tragos incluidos durante la experiencia
-                </p>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-sm sm:text-base">
+                    2 Tragos incluidos durante la experiencia
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-sm sm:text-base">
+                    Ticket digital incluido
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-sm sm:text-base">
+                    Kit de la experiencia incluido
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-sm sm:text-base">
+                    Meet & Greet con artistas
+                  </p>
+                </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Ticket digital incluido
-                </p>
+              {/* Purchase Button */}
+              <div className="mt-auto pt-8">
+                <a
+                  href="/shop?ticket_type=Boleta General"
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block"
+                >
+                  Comprar Boleta
+                </a>
               </div>
-            </div>
-            
-            <div className="mt-auto pt-8">
-              <a
-                href="/shop?ticket_type=Boleta General"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block"
-              >
-                Comprar General
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-400/30 rounded-2xl p-6 sm:p-8 relative flex flex-col">
-            <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-xs font-bold px-3 py-1 rounded-full">
-              VIP
-            </div>
-            
-            <div className="mb-4 p-3 bg-orange-500/20 border border-orange-400/30 rounded-lg">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-orange-400 rounded-full flex items-center justify-center">
-                  <svg className="w-2 h-2 text-black" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-                <p className="text-orange-300 text-sm font-semibold">
-                  ¡Solo 50 boletas VIP disponibles!
-                </p>
-              </div>
-            </div>
-            
-            <div className="text-center mb-8">
-              <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
-                <span className="text-yellow-400">BOLETA VIP</span>
-              </h1>
-              <div className="mt-4">
-                <span className="text-3xl sm:text-4xl font-bold text-yellow-400">$90,000</span>
-                <span className="text-white/60 text-sm sm:text-base ml-2">COP</span>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Todo lo de General +
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Zona VIP exclusiva
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Acceso rápido a la experiencia
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Atención personalizada en barra durante la experiencia
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <p className="text-white text-sm sm:text-base">
-                  Meet & Greet con artistas
-                </p>
-              </div>
-            </div>
-            
-            <div className="mt-auto pt-8">
-              <a
-                href="/shop?ticket_type=Boleta VIP"
-                className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center block"
-              >
-                Comprar VIP
-              </a>
             </div>
           </div>
         </div>
-        */}
       </section>
 
       {/* INSTAGRAM SECTION */}
