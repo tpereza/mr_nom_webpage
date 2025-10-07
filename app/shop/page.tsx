@@ -46,9 +46,10 @@ function ShopPageContent() {
         name: formData.name,
         email: formData.email,
         quantity: parseInt(formData.ticketCount),
-        type: "Boleta General" // Always send Boleta General
+        type: "general" // Always send Boleta General
       };
 
+      console.log('Frontend sending purchase data:', purchaseData);
       const result = await apiService.buyTickets(purchaseData);
       
       // Clear timeout since request completed

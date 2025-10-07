@@ -92,15 +92,19 @@ export class ApiService {
         "type": data.type
       };
       
+      console.log('Sending to backend:', requestData);
+      
       const response = await this.axiosInstance.post('/checkout', requestData,{
         headers: getApiHeaders()
       });
-      console.log(response.data);
+      
+      console.log('Backend response:', response.data);
+      
       return {
         payment_id: response.data.payment_id,
         name: data.name,
         quantity: data.quantity,
-        type: response.data.type,
+        type: data.type, // Use the type we sent, not the response type
         email: data.email,
         payment_url: response.data.payment_url
       };
