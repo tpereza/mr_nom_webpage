@@ -187,7 +187,8 @@ export default function ExperienciaPage() {
           </div>
         </div>
 
-        {/* TICKETS SECTION TITLE */}
+        {/* TICKETS SECTION - HIDDEN */}
+        {/* 
         <div className="text-center mb-8 lg:mb-12">
           <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px]">
             <span className="grad-pink-blue">Compra</span><br/>
@@ -198,10 +199,8 @@ export default function ExperienciaPage() {
           </p>
         </div>
 
-        {/* TICKET COMPARISON - Two Boxes Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           
-          {/* BOLETA GENERAL */}
           <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-2xl p-6 sm:p-8 flex flex-col">
             <div className="text-center mb-8">
               <h1 className="grad-multiline font-black leading-[0.95] tracking-tight text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
@@ -248,7 +247,6 @@ export default function ExperienciaPage() {
               </div>
             </div>
             
-            {/* Purchase Button */}
             <div className="mt-auto pt-8">
               <a
                 href="/shop?ticket_type=Boleta General"
@@ -259,14 +257,11 @@ export default function ExperienciaPage() {
             </div>
           </div>
 
-          {/* BOLETA VIP */}
           <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-400/30 rounded-2xl p-6 sm:p-8 relative flex flex-col">
-            {/* VIP Badge */}
             <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-xs font-bold px-3 py-1 rounded-full">
               VIP
             </div>
             
-            {/* Limited Availability Alert */}
             <div className="mb-4 p-3 bg-orange-500/20 border border-orange-400/30 rounded-lg">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 bg-orange-400 rounded-full flex items-center justify-center">
@@ -347,7 +342,6 @@ export default function ExperienciaPage() {
               </div>
             </div>
             
-            {/* Purchase Button */}
             <div className="mt-auto pt-8">
               <a
                 href="/shop?ticket_type=Boleta VIP"
@@ -358,6 +352,7 @@ export default function ExperienciaPage() {
             </div>
           </div>
         </div>
+        */}
       </section>
 
       {/* INSTAGRAM SECTION */}

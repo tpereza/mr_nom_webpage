@@ -107,17 +107,24 @@ function VerifyPageContent() {
 
   return (
     <main className="min-h-screen bg-black">
-      {/* Header with Logo Only */}
+      {/* NAV */}
       <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
-        <a href="/" className="block">
-          <Image
-            src="/images/logo.png"
-            alt="MR+NØM Logo"
-            width={120}
-            height={40}
-            className="cursor-pointer"
-          />
-        </a>
+        <div className="flex items-center gap-4 sm:gap-8">
+          <a href="/" className="block">
+            <Image
+              src="/images/logo.png"
+              alt="MR+NØM Logo"
+              width={120}
+              height={40}
+              className="cursor-pointer"
+            />
+          </a>
+          <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
+            <a className="nav-link" href="/evento">EXPERIENCIA</a>
+            <a className="nav-link" href="/contact">CONTACTO</a>
+            <a className="nav-link" href="/shop">SHOP</a>
+          </nav>
+        </div>
       </header>
 
       {/* VERIFY SECTION */}
@@ -345,15 +352,22 @@ export default function VerifyPage() {
     <Suspense fallback={
       <main className="min-h-screen bg-black">
         <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
-          <a href="/" className="block">
-            <Image
-              src="/images/logo.png"
-              alt="MR+NØM Logo"
-              width={120}
-              height={40}
-              className="cursor-pointer"
-            />
-          </a>
+          <div className="flex items-center gap-4 sm:gap-8">
+            <a href="/" className="block">
+              <Image
+                src="/images/logo.png"
+                alt="MR+NØM Logo"
+                width={120}
+                height={40}
+                className="cursor-pointer"
+              />
+            </a>
+            <nav className="flex flex-wrap items-center gap-4 sm:gap-8 sm:ml-8">
+              <a className="nav-link" href="/evento">EXPERIENCIA</a>
+              <a className="nav-link" href="/contact">CONTACTO</a>
+              <a className="nav-link" href="/shop">SHOP</a>
+            </nav>
+          </div>
         </header>
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-20">
           <div className="text-center">
